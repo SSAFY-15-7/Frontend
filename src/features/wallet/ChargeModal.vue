@@ -60,7 +60,9 @@ function submit() {
     aria-labelledby="charge-title"
     @click.self="emit('close')"
   >
-    <div class="border-line max-h-full w-full max-w-lg overflow-y-auto rounded-2xl border bg-white">
+    <div
+      class="border-line bg-surface max-h-full w-full max-w-lg overflow-y-auto rounded-2xl border"
+    >
       <div class="p-6 sm:p-7">
         <h2 id="charge-title" class="text-ink text-[24px] font-bold tracking-tight">
           거래 포인트 충전
@@ -94,8 +96,8 @@ function submit() {
               class="rounded-xl border py-3.5 text-center text-[14px] font-semibold tabular-nums transition"
               :class="
                 amount === preset.amount
-                  ? 'bg-terra-tint border-terra text-terra-d'
-                  : 'border-line text-ink hover:bg-cream bg-white'
+                  ? 'bg-terra-tint border-terra text-terra-tint-text'
+                  : 'border-line text-ink hover:bg-cream bg-surface'
               "
               @click="pickPreset(preset.amount)"
             >
@@ -103,7 +105,7 @@ function submit() {
             </button>
           </div>
           <label
-            class="border-line focus-within:border-slate mt-2 flex items-baseline gap-2.5 rounded-xl border bg-white px-3 py-2.5 transition"
+            class="border-line focus-within:border-slate bg-surface mt-2 flex items-baseline gap-2.5 rounded-xl border px-3 py-2.5 transition"
           >
             <span class="text-dim flex-none self-center text-[11.5px]">직접 입력</span>
             <input
@@ -129,7 +131,7 @@ function submit() {
               :class="
                 provider === item.code
                   ? 'bg-terra-tint border-terra'
-                  : 'border-line hover:bg-cream bg-white'
+                  : 'border-line hover:bg-cream bg-surface'
               "
               @click="provider = item.code"
             >
@@ -165,7 +167,7 @@ function submit() {
         <div class="mt-5 flex items-center gap-2.5">
           <button
             type="button"
-            class="border-line text-dim hover:bg-cream rounded-xl border bg-white px-5 py-3 text-[14px] font-medium transition"
+            class="border-line text-dim hover:bg-cream bg-surface rounded-xl border px-5 py-3 text-[14px] font-medium transition"
             @click="emit('close')"
           >
             취소

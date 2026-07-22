@@ -2,9 +2,6 @@
 // MEM-01 카카오 로그인 버튼 — 로그인 화면과 회원가입 화면 두 곳에 나오므로 컴포넌트로 뺐다.
 // `social_account`에 CHECK (provider = 'KAKAO')가 걸려 있어 지원 provider는 카카오뿐이다.
 // 구글·애플 버튼은 만들지 않는다 (백엔드가 저장할 수 없다).
-//
-// 색: 카카오 브랜드 옐로(#FEE500)는 @theme 토큰에 없다. 하드코딩 금지 규칙에 따라
-// 가장 가까운 대비 조합인 bg-ink / text-on-dark로 대체했다. 토큰 추가는 별도 합의 사항.
 defineProps<{ label: string; pending?: boolean }>()
 
 const emit = defineEmits<{ click: [] }>()
@@ -13,7 +10,7 @@ const emit = defineEmits<{ click: [] }>()
 <template>
   <button
     type="button"
-    class="bg-ink text-on-dark hover:bg-stage mt-7 flex min-h-13 w-full items-center justify-center gap-2.5 rounded-xl text-[15px] font-bold transition active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-60"
+    class="bg-kakao text-on-kakao mt-7 flex min-h-13 w-full items-center justify-center gap-2.5 rounded-xl text-[15px] font-bold transition hover:brightness-95 active:scale-[0.985] disabled:cursor-not-allowed disabled:opacity-60"
     :disabled="pending"
     @click="emit('click')"
   >

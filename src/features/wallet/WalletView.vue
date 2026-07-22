@@ -55,8 +55,8 @@ const ledgerSub = computed(() =>
 )
 
 const TONE_BADGE: Record<LedgerTone, string> = {
-  up: 'bg-success/10 text-success',
-  dn: 'bg-terra-tint text-terra-d',
+  up: 'bg-success-tint text-success',
+  dn: 'bg-terra-tint text-terra-tint-text',
   hold: 'bg-slate-tint text-slate',
 }
 const TONE_AMOUNT: Record<LedgerTone, string> = {
@@ -127,7 +127,7 @@ function onWithdraw(amount: number) {
             <div class="flex flex-none gap-1.5">
               <button
                 type="button"
-                class="border-line text-dim rounded-full border bg-white px-3 py-1 text-[11.5px] font-medium transition hover:bg-white/70"
+                class="border-line text-dim bg-surface rounded-full border px-3 py-1 text-[11.5px] font-medium transition hover:bg-white/70"
                 @click="withdrawOpen = true"
               >
                 출금
@@ -233,7 +233,7 @@ function onWithdraw(amount: number) {
               class="rounded-lg px-4 py-2 text-[13px] transition"
               :class="
                 wallet.activeWalletType === tab.type
-                  ? 'text-ink bg-white font-semibold shadow-sm'
+                  ? 'text-ink bg-surface font-semibold shadow-sm'
                   : 'text-dim hover:text-ink'
               "
               @click="wallet.setActiveWalletType(tab.type)"
@@ -243,7 +243,7 @@ function onWithdraw(amount: number) {
           </div>
         </div>
 
-        <ul v-if="visibleLedger.length > 0" class="border-line mt-4 rounded-2xl border bg-white">
+        <ul v-if="visibleLedger.length > 0" class="border-line bg-surface mt-4 rounded-2xl border">
           <li
             v-for="entry in visibleLedger"
             :key="entry.id"
@@ -284,7 +284,7 @@ function onWithdraw(amount: number) {
           <button
             v-if="hasMore"
             type="button"
-            class="border-line text-dim hover:bg-cream rounded-full border bg-white px-5 py-2.5 text-[13px] font-medium transition"
+            class="border-line text-dim hover:bg-cream bg-surface rounded-full border px-5 py-2.5 text-[13px] font-medium transition"
             @click="shown += LEDGER_PAGE"
           >
             더 보기

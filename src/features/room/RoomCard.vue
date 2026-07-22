@@ -30,7 +30,7 @@ const thumbClass = computed(() => THUMB_BY_CATEGORY[props.room.category] ?? 'fro
 
 <template>
   <article
-    class="group border-line hover:border-faint hover:shadow-stage/20 cursor-pointer overflow-hidden rounded-2xl border bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+    class="group border-line hover:border-faint hover:shadow-stage/20 bg-surface cursor-pointer overflow-hidden rounded-2xl border transition duration-300 hover:-translate-y-1 hover:shadow-xl"
     @click="emit('select', room)"
   >
     <!-- 썸네일 placeholder -->

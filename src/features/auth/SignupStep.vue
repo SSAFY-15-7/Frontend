@@ -33,7 +33,7 @@ const BENEFITS = [
     </p>
 
     <ul
-      class="border-line mt-6 flex flex-col gap-3.5 rounded-2xl border bg-white px-5 py-4.5 text-left"
+      class="border-line bg-surface mt-6 flex flex-col gap-3.5 rounded-2xl border px-5 py-4.5 text-left"
     >
       <li v-for="b in BENEFITS" :key="b.title" class="flex gap-3">
         <span class="text-base leading-6" aria-hidden="true">{{ b.icon }}</span>

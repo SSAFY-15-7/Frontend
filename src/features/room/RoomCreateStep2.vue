@@ -40,7 +40,7 @@ function selectStartType(next: StartType) {
   <div class="grid gap-4 lg:grid-cols-2">
     <div class="flex flex-col gap-3.5">
       <!-- 하한가 -->
-      <section class="border-line rounded-2xl border bg-white p-5">
+      <section class="border-line bg-surface rounded-2xl border p-5">
         <label for="cr-reserve" class="text-ink text-[13px] font-semibold">
           하한가 <span class="text-terra">*</span>
         </label>
@@ -70,7 +70,7 @@ function selectStartType(next: StartType) {
       </section>
 
       <!-- 진행 시간 -->
-      <section class="border-line rounded-2xl border bg-white p-5">
+      <section class="border-line bg-surface rounded-2xl border p-5">
         <div class="text-ink text-[13px] font-semibold">
           진행 시간 <span class="text-terra">*</span>
         </div>
@@ -83,7 +83,7 @@ function selectStartType(next: StartType) {
             :class="
               durationMinutes === preset
                 ? 'bg-terra text-on-dark'
-                : 'border-line text-dim hover:bg-cream border bg-white'
+                : 'border-line text-dim hover:bg-cream bg-surface border'
             "
             @click="durationMinutes = preset"
           >
@@ -115,7 +115,7 @@ function selectStartType(next: StartType) {
 
     <div class="flex flex-col gap-3.5">
       <!-- 시작 방식 -->
-      <section class="border-line rounded-2xl border bg-white p-5">
+      <section class="border-line bg-surface rounded-2xl border p-5">
         <div class="text-ink text-[13px] font-semibold">
           시작 방식 <span class="text-terra">*</span>
         </div>
@@ -126,7 +126,7 @@ function selectStartType(next: StartType) {
             :class="
               startType === 'IMMEDIATE'
                 ? 'border-terra bg-terra-tint'
-                : 'border-line hover:border-faint bg-white'
+                : 'border-line hover:border-faint bg-surface'
             "
             @click="selectStartType('IMMEDIATE')"
           >
@@ -139,7 +139,7 @@ function selectStartType(next: StartType) {
             :class="
               startType === 'SCHEDULED'
                 ? 'border-terra bg-terra-tint'
-                : 'border-line hover:border-faint bg-white'
+                : 'border-line hover:border-faint bg-surface'
             "
             @click="selectStartType('SCHEDULED')"
           >
@@ -176,7 +176,7 @@ function selectStartType(next: StartType) {
             {{ errors.scheduledAt }}
           </p>
           <p
-            class="bg-slate-tint text-slate mt-3 rounded-xl px-3.5 py-3 text-[12px] leading-relaxed"
+            class="bg-slate-tint text-slate-tint-text mt-3 rounded-xl px-3.5 py-3 text-[12px] leading-relaxed"
           >
             개설하면 바로 <b>대기방</b>이 열려요. 참여자는 채팅하며 기다리고, 입찰은 시작 후에
             열립니다. 시작은 예정 시각에 직접 누르시면 돼요. (ROOM-07)
