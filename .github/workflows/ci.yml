@@ -27,6 +27,14 @@ jobs:
       - name: 'Install dependencies'
         run: 'npm ci'
 
+      # 서식·린트 검사. 실패해도 빌드 결과는 확인할 수 있도록 build보다 앞에 두되
+      # continue-on-error는 쓰지 않는다 (규칙은 강제되어야 의미가 있다).
+      - name: 'Format check'
+        run: 'npm run format:check'
+
+      - name: 'Lint'
+        run: 'npm run lint'
+
       # vue-tsc 타입체크 + vite 빌드. AGENTS.md의 "커밋 전 build 통과" 규칙을 CI에서 강제한다.
       - name: 'Type check & build'
         run: 'npm run build'
