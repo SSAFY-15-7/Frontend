@@ -93,7 +93,7 @@ function setMode(next: AuthMode) {
             class="rounded-lg px-3.5 py-1.5 text-xs transition"
             :class="
               demoNewMember === opt.value
-                ? 'text-ink bg-white font-semibold shadow-sm'
+                ? 'text-ink bg-surface font-semibold shadow-sm'
                 : 'text-dim hover:text-ink'
             "
             @click="demoNewMember = opt.value"

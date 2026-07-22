@@ -36,7 +36,7 @@ function submit() {
     <div class="mt-6">
       <label for="onboarding-nickname" class="text-dim mb-1.5 block text-xs">닉네임</label>
       <div
-        class="flex items-baseline gap-2.5 rounded-[10px] border bg-white px-3 py-2.5 transition focus-within:ring-3"
+        class="bg-surface flex items-baseline gap-2.5 rounded-[10px] border px-3 py-2.5 transition focus-within:ring-3"
         :class="
           error
             ? 'border-red focus-within:ring-red/12'
@@ -66,7 +66,7 @@ function submit() {
     <div class="mt-5.5 flex gap-2.5">
       <button
         type="button"
-        class="border-line text-dim hover:bg-cream min-h-12 flex-none rounded-xl border bg-white px-5 text-sm font-semibold transition"
+        class="border-line text-dim hover:bg-cream bg-surface min-h-12 flex-none rounded-xl border px-5 text-sm font-semibold transition"
         @click="emit('back')"
       >
         이전

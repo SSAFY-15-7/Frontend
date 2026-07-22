@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
   <div class="grid gap-4 lg:grid-cols-2">
     <div class="flex flex-col gap-3.5">
       <!-- 상품 사진 -->
-      <section class="border-line rounded-2xl border bg-white p-5">
+      <section class="border-line bg-surface rounded-2xl border p-5">
         <div class="text-ink text-[13px] font-semibold">상품 사진</div>
         <p class="text-dim mt-1 text-[12px]">
           대표 이미지는 한 장만 고를 수 있어요. 순서는 위에서부터 1번입니다.
@@ -132,7 +132,7 @@ onBeforeUnmount(() => {
           <li
             v-for="img in images"
             :key="img.id"
-            class="border-line flex items-center gap-3 rounded-xl border bg-white p-2.5"
+            class="border-line bg-surface flex items-center gap-3 rounded-xl border p-2.5"
             :class="img.isThumbnail && 'border-terra bg-terra-tint'"
           >
             <img
@@ -187,7 +187,7 @@ onBeforeUnmount(() => {
 
     <div class="flex flex-col gap-3.5">
       <!-- 제목 · 설명 · 카테고리 · 상태 -->
-      <section class="border-line flex flex-col gap-4 rounded-2xl border bg-white p-5">
+      <section class="border-line bg-surface flex flex-col gap-4 rounded-2xl border p-5">
         <div>
           <label for="cr-title" class="text-ink text-[13px] font-semibold">
             제목 <span class="text-terra">*</span>
@@ -233,7 +233,7 @@ onBeforeUnmount(() => {
           <select
             id="cr-category"
             v-model="categoryCode"
-            class="border-line text-ink focus:border-terra mt-2 w-full rounded-xl border bg-white px-3.5 py-2.5 text-[14px] transition outline-none"
+            class="border-line text-ink focus:border-terra bg-surface mt-2 w-full rounded-xl border px-3.5 py-2.5 text-[14px] transition outline-none"
             :class="errors.categoryCode && 'border-red'"
           >
             <option value="">카테고리를 선택하세요</option>
@@ -256,7 +256,7 @@ onBeforeUnmount(() => {
               :class="
                 conditionStatus === ''
                   ? 'bg-ink text-cream'
-                  : 'border-line text-dim hover:bg-cream border bg-white'
+                  : 'border-line text-dim hover:bg-cream bg-surface border'
               "
               @click="conditionStatus = ''"
             >
@@ -270,7 +270,7 @@ onBeforeUnmount(() => {
               :class="
                 conditionStatus === opt.value
                   ? 'bg-ink text-cream'
-                  : 'border-line text-dim hover:bg-cream border bg-white'
+                  : 'border-line text-dim hover:bg-cream bg-surface border'
               "
               @click="conditionStatus = opt.value"
             >

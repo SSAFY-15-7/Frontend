@@ -207,7 +207,7 @@ async function submit() {
         <template v-if="step === 1">
           <RouterLink
             to="/"
-            class="border-line text-dim hover:bg-cream rounded-full border bg-white px-5.5 py-3 text-[14px] font-medium transition"
+            class="border-line text-dim hover:bg-cream bg-surface rounded-full border px-5.5 py-3 text-[14px] font-medium transition"
           >
             취소
           </RouterLink>
@@ -224,7 +224,7 @@ async function submit() {
         <template v-else>
           <button
             type="button"
-            class="border-line text-dim hover:bg-cream rounded-full border bg-white px-5.5 py-3 text-[14px] font-medium transition"
+            class="border-line text-dim hover:bg-cream bg-surface rounded-full border px-5.5 py-3 text-[14px] font-medium transition"
             @click="goStep1"
           >
             ← 이전

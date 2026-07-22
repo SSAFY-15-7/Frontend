@@ -5,9 +5,13 @@
 
 ## 절대 규칙 (위반 금지)
 
-1. **색·폰트 하드코딩 금지.** 반드시 토큰 클래스만 사용 (`bg-cream`, `text-terra`, `text-on-dark-dim` 등).
+1. **색·폰트 하드코딩 금지.** 반드시 토큰 클래스만 사용 (`bg-cream`, `bg-surface`, `text-terra`, `text-on-dark-dim` 등).
    토큰 정의는 `src/app/styles/main.css`의 `@theme` 블록이 유일한 위치다.
-   새 색이 필요하면 임의로 추가하지 말고 디자인 단일 소스(기획 레포 `비드라이브 인터랙티브.html`)와 대조 후 추가한다.
+   **디자인 단일 소스는 기획 레포의 `비드라이브 인터랙티브.html` `:root` 블록이고,
+   같은 팔레트가 `DESIGN.md`(v0.5) 머리말에 표로도 정리되어 있다.** 새 색이 필요하면 임의로 추가하지 말고
+   먼저 그 표에 있는지 확인한다 — 없는 색만 합의 대상이다.
+   컨셉은 "밝은 장터(중성 `#FAFAFA` 위 흰 카드), 어두운 무대(스테이지만 다크)"이며 따뜻한 색조를 섞지 않는다.
+   기능색은 둘뿐이다: **레드**(지금 벌어지는 일 — 라이브·입찰·마감 임박), **슬레이트**(예정된 일과 베팅).
 2. **`tailwind.config.js`를 만들지 말 것.** Tailwind v4는 CSS-first(`@theme`) 방식이다. v3 문서 기준으로 작업하지 않는다.
 3. **`package-lock.json` 삭제·재생성 금지. TypeScript 버전(`~6.0.x`) 업그레이드 금지** (vue-tsc 호환 제약).
 4. **FE2 소유 영역을 합의 없이 수정하지 말 것**: `features/live/media/`·`features/live/socket/`, `features/chat/`, `stores/live.ts`.

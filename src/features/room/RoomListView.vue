@@ -64,7 +64,7 @@ function openRoom(room: Room) {
           <h1 class="text-ink mt-1.5 text-[34px] font-bold tracking-tight">전체 라이브 방송</h1>
         </div>
         <div
-          class="border-line text-faint focus-within:border-terra flex h-10.5 w-75 items-center gap-2 rounded-full border bg-white px-4 transition"
+          class="border-line text-faint focus-within:border-terra bg-surface flex h-10.5 w-75 items-center gap-2 rounded-full border px-4 transition"
         >
           <svg
             class="h-4 w-4 flex-none"
@@ -96,7 +96,7 @@ function openRoom(room: Room) {
           class="rounded-lg px-4 py-2 text-[13px] transition"
           :class="
             activeState === tab.state
-              ? 'text-ink bg-white font-semibold shadow-sm'
+              ? 'text-ink bg-surface font-semibold shadow-sm'
               : 'text-dim hover:text-ink'
           "
           @click="activeState = tab.state"
@@ -114,7 +114,7 @@ function openRoom(room: Room) {
           :class="
             activeCategory === ''
               ? 'bg-ink text-cream'
-              : 'border-line text-dim hover:bg-cream border bg-white'
+              : 'border-line text-dim hover:bg-cream bg-surface border'
           "
           @click="activeCategory = ''"
         >
@@ -128,7 +128,7 @@ function openRoom(room: Room) {
           :class="
             activeCategory === cat
               ? 'bg-ink text-cream'
-              : 'border-line text-dim hover:bg-cream border bg-white'
+              : 'border-line text-dim hover:bg-cream bg-surface border'
           "
           @click="activeCategory = cat"
         >

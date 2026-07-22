@@ -19,7 +19,7 @@ const fmtDate = (iso: string) =>
     :aria-label="terms.title"
     @click.self="emit('close')"
   >
-    <div class="flex max-h-[80vh] w-full max-w-150 flex-col overflow-hidden rounded-2xl bg-white">
+    <div class="bg-surface flex max-h-[80vh] w-full max-w-150 flex-col overflow-hidden rounded-2xl">
       <header class="border-line flex items-start justify-between gap-4 border-b px-6 py-4.5">
         <div>
           <h2 class="text-ink text-base font-bold">{{ terms.title }}</h2>

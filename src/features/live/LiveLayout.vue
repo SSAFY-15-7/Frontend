@@ -67,7 +67,7 @@ const { display, urgent } = useCountdown(() => live.endsAt, {
             <span
               class="bg-red inline-flex items-center gap-[5px] rounded-full px-2.5 py-1 text-[11px] font-bold text-white"
             >
-              <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />LIVE
+              <span class="bg-surface h-1.5 w-1.5 animate-pulse rounded-full" />LIVE
             </span>
             <span
               v-if="sellerName"
