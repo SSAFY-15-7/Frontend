@@ -2,6 +2,7 @@
 // ROOM-02 방 목록 카드 — 상태별(진행중/대기/종료)로 배지·우상단 카운트·하단 메타만 갈리고 골격은 공유
 import { computed } from 'vue'
 import type { Room } from '@/mocks/rooms'
+import { useCountdown } from '@/shared/lib/useCountdown'
 
 const props = defineProps<{ room: Room }>()
 
@@ -9,11 +10,11 @@ const emit = defineEmits<{ select: [room: Room] }>()
 
 const fmtPoint = (n: number) => `${n.toLocaleString('ko-KR')}P`
 
-// BID-05: 남은 시간은 서버 스냅샷 값(endsInSec)의 요약 표시만 — 클라이언트 카운트다운 금지
-const fmtMMSS = (s: number) =>
-  `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
-
-const isUrgent = computed(() => props.room.state === 'live' && (props.room.endsInSec ?? 0) <= 180)
+// BID-05: 서버가 준 절대 마감 시각(endsAt) 기준 표시 — 목록 카드도 3분 이하면 강조
+const { display: remainDisplay, urgent } = useCountdown(() => props.room.endsAt, {
+  urgentMs: 180_000,
+})
+const isUrgent = computed(() => props.room.state === 'live' && urgent.value)
 
 // 썸네일: 외부 이미지 URL 대신 토큰 기반 그라데이션 placeholder (카테고리별 색감)
 const THUMB_BY_CATEGORY: Record<string, string> = {
@@ -104,7 +105,7 @@ const thumbClass = computed(() => THUMB_BY_CATEGORY[props.room.category] ?? 'fro
         class="text-on-dark absolute right-3 bottom-3 rounded-full px-2.5 py-1 text-[11.5px] font-semibold tabular-nums backdrop-blur-sm"
         :class="isUrgent ? 'bg-red/90' : 'bg-stage/60'"
       >
-        {{ fmtMMSS(room.endsInSec ?? 0) }}
+        {{ remainDisplay }}
       </span>
     </div>
 

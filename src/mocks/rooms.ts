@@ -17,8 +17,8 @@ export interface Room {
   participantCount: number
   /** 시청자 수 (live) */
   viewerCount: number
-  /** live: 종료까지 남은 초 — 서버 응답 스냅샷 값. 목록에서는 요약 표시만 한다 (BID-05) */
-  endsInSec?: number
+  /** live: 서버 권위 마감 시각 (epoch ms) — 남은 시간은 이 절대 시각 기준으로 표시만 한다 (BID-05) */
+  endsAt?: number
   /** waiting: 시작 예정 시각 표시 문자열 */
   startsAtLabel?: string
   /** ended: 종료 시점 표시 문자열 */
@@ -26,6 +26,10 @@ export interface Room {
   /** ended: 낙찰가 — 종료 후에만 공개 */
   soldPrice?: number
 }
+
+// 목 데이터는 모듈 로드 시각 기준으로 마감 시각을 만든다 (고정 epoch를 박으면 나중에 열었을 때 전부 만료).
+// TODO: 실 API 전환 시 서버가 endsAt(절대 시각)을 내려주므로 이 계산은 삭제하고 응답 값을 그대로 쓴다 — 계약이 그대로 맞는다.
+const now = Date.now()
 
 export const mockRooms: Room[] = [
   // ── 진행중 (live) ──
@@ -38,7 +42,7 @@ export const mockRooms: Room[] = [
     bidCount: 12,
     participantCount: 9,
     viewerCount: 24,
-    endsInSec: 252,
+    endsAt: now + 252_000,
   },
   {
     id: 2,
@@ -49,7 +53,7 @@ export const mockRooms: Room[] = [
     bidCount: 7,
     participantCount: 15,
     viewerCount: 41,
-    endsInSec: 748,
+    endsAt: now + 748_000,
   },
   {
     id: 3,
@@ -60,7 +64,7 @@ export const mockRooms: Room[] = [
     bidCount: 9,
     participantCount: 20,
     viewerCount: 33,
-    endsInSec: 119,
+    endsAt: now + 119_000,
   },
   {
     id: 4,
@@ -71,7 +75,7 @@ export const mockRooms: Room[] = [
     bidCount: 15,
     participantCount: 29,
     viewerCount: 52,
-    endsInSec: 187,
+    endsAt: now + 187_000,
   },
   // ── 대기 (waiting) — 채팅만 활성, 입찰·베팅 잠금 (ROOM-07) ──
   {
