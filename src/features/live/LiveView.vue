@@ -42,7 +42,7 @@ function onBack() {
     <template #video>
       <div class="flex h-full w-full items-center justify-center">
         <p
-          class="rounded-[10px] border border-dashed border-on-dark-dim/40 px-[18px] py-3 font-mono text-[13px] text-on-dark-dim"
+          class="border-on-dark-dim/40 text-on-dark-dim rounded-[10px] border border-dashed px-[18px] py-3 font-mono text-[13px]"
         >
           FE2 — WebRTC 스트림 영역
         </p>
@@ -52,7 +52,7 @@ function onBack() {
     <!-- FE1 — 입찰/예측 토글 패널 (features/bid/ · features/prediction/) 자리 -->
     <template #action>
       <div
-        class="flex h-[220px] items-center justify-center rounded-[18px] border border-dashed border-faint/60 bg-line/40 text-[13px] text-dim"
+        class="border-faint/60 bg-line/40 text-dim flex h-[220px] items-center justify-center rounded-[18px] border border-dashed text-[13px]"
       >
         입찰/예측 패널 (FE1 후속 작업)
       </div>
@@ -61,7 +61,7 @@ function onBack() {
     <!-- FE2 — ChatPanel (features/chat/) 자리 -->
     <template #chat>
       <div
-        class="flex h-full items-center justify-center rounded-[20px] border border-dashed border-faint/60 bg-line/40 text-[13px] text-dim"
+        class="border-faint/60 bg-line/40 text-dim flex h-full items-center justify-center rounded-[20px] border border-dashed text-[13px]"
       >
         FE2 — 채팅 패널 영역
       </div>

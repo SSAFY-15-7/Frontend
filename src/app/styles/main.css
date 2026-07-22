@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* 디자인 단일 소스: 비드라이브 인터랙티브.html 의 CSS 변수를 그대로 이관.
    색·폰트는 반드시 이 토큰으로만 사용한다 (하드코딩 hex 금지). */
@@ -19,7 +19,7 @@
   --color-red: #d2483d;
   --color-success: #157a4a;
 
-  --font-sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", system-ui, sans-serif;
+  --font-sans: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', system-ui, sans-serif;
   --font-mono: ui-monospace, Menlo, monospace;
 
   --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);

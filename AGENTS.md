@@ -34,9 +34,11 @@
 
 ## 커밋
 
-- Conventional Commits 한국어: `feat:` `fix:` `chore:` `docs:` `refactor:` + 명사형 요약 한 줄.
-- 커밋 전 `npm run build`(vue-tsc 타입체크 포함)가 통과해야 한다.
-- 커밋 메시지에 AI co-author 트레일러를 넣지 않는다.
+- Conventional Commits 한국어: `feat:` `fix:` `chore:` `docs:` `refactor:` `style:` + 명사형 요약 한 줄.
+- 커밋 전 `npm run lint`와 `npm run build`(vue-tsc 타입체크 포함)가 통과해야 한다.
+  서식은 `npm run format`으로 맞춘다 (CI가 `format:check`·`lint`·`build`를 모두 검사한다).
+- 커밋 메시지에 AI co-author 트레일러를 넣지 않는다. **PR 본문에도 AI 생성 표기를 넣지 않는다.**
+- 기능 브랜치는 `dev`를 base로 PR을 만든다. `main`은 데모 가능한 안정 상태로 두고 `dev`에서 주기적으로 머지한다.
 
 ## 도메인 용어 (기능 ID)
 
