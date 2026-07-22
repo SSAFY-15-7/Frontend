@@ -2,7 +2,8 @@
 // LIVE 라이브 화면 슬롯 프레임 — 소유 FE1 (docs/03-역할-경계-합의.md §4)
 // 슬롯 계약: #video(FE2 WebRTC 스트림) · #chat(FE2 ChatPanel) · #action(FE1 입찰↔예측 패널).
 // 레이아웃·반응형·영역 크기 배분은 이 프레임 책임 — 슬롯 컴포넌트는 부모를 100% 채운다고 가정한다.
-import { useCountdown } from './useCountdown'
+import { useCountdown } from '@/shared/lib/useCountdown'
+import { useLiveStore } from '@/stores/live'
 
 withDefaults(
   defineProps<{
@@ -21,8 +22,11 @@ const emit = defineEmits<{
   back: []
 }>()
 
-// BID-05 서버 권위 타이머 — live 스토어 endsAt + serverOffset 기준 표시 전용
-const { display, urgent } = useCountdown()
+// BID-05 서버 권위 타이머 — live 스토어 endsAt + serverOffset 기준 표시 전용 (임박 기준 60초)
+const live = useLiveStore()
+const { display, urgent } = useCountdown(() => live.endsAt, {
+  serverOffset: () => live.serverOffset,
+})
 </script>
 
 <template>

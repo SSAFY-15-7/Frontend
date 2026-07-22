@@ -33,9 +33,12 @@ const filteredRooms = computed(() => {
       r.state === activeState.value &&
       (activeCategory.value === '' || r.category === activeCategory.value),
   )
-  // 진행중 목록은 남은 시간 오름차순 — 마감 임박이 먼저 (디자인 정렬 기준)
+  // 진행중 목록은 마감 시각 오름차순 — 마감 임박이 먼저 (디자인 정렬 기준)
+  // endsAt이 없는 방(마감 시각 미확정)은 뒤로 보낸다
   if (activeState.value === 'live') {
-    return [...rooms].sort((a, b) => (a.endsInSec ?? 0) - (b.endsInSec ?? 0))
+    return [...rooms].sort(
+      (a, b) => (a.endsAt ?? Number.POSITIVE_INFINITY) - (b.endsAt ?? Number.POSITIVE_INFINITY),
+    )
   }
   return rooms
 })
