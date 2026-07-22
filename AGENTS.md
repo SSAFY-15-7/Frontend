@@ -10,8 +10,10 @@
    새 색이 필요하면 임의로 추가하지 말고 디자인 단일 소스(기획 레포 `비드라이브 인터랙티브.html`)와 대조 후 추가한다.
 2. **`tailwind.config.js`를 만들지 말 것.** Tailwind v4는 CSS-first(`@theme`) 방식이다. v3 문서 기준으로 작업하지 않는다.
 3. **`package-lock.json` 삭제·재생성 금지. TypeScript 버전(`~6.0.x`) 업그레이드 금지** (vue-tsc 호환 제약).
-4. **FE2 소유 영역을 합의 없이 수정하지 말 것**: `features/live/` 내부 구현, `stores/live.ts`.
-   `stores/live.ts`의 state 구조는 FE1·FE2 합의 사항이다 — 필드 추가·변경은 제안만 하고 임의 커밋하지 않는다.
+4. **FE2 소유 영역을 합의 없이 수정하지 말 것**: `features/live/media/`·`features/live/socket/`, `features/chat/`, `stores/live.ts`.
+   단 `features/live/LiveView.vue`·`LiveLayout.vue`는 FE1 소유(프레임)다. 입찰·예측 패널은 `features/bid/`·`features/prediction/`(FE1).
+   상대 소유 컴포넌트는 import는 자유, 내부 수정만 사전 합의 대상.
+   `stores/live.ts`의 state·action 시그니처는 FE1·FE2 합의 사항(`docs/03-역할-경계-합의.md` §3)이다 — 변경은 제안만 하고 임의 커밋하지 않는다.
 5. **타이머를 클라이언트에서 자체 계산하지 말 것.** 남은 시간은 항상 `live` 스토어의 `endsAt` + `serverOffset`(서버 권위, BID-05) 기준으로 표시만 한다. `Date.now()` 단독 계산 금지.
 6. **비크리 비공개 원칙**: 진행 중 화면에 타인의 입찰 금액·순위·최고가를 표시하는 UI를 만들지 않는다.
    공개 가능한 것은 입찰 건수·참여자 수·**본인** 입찰가뿐. 전체 입찰 내역은 종료 후 결과 화면에서만(마스킹).
