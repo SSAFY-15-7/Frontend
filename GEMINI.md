@@ -15,8 +15,10 @@
    `src/app/styles/main.css`의 `@theme` 블록 외부에서 색을 정의하면 위반.
 2. **`tailwind.config.js` 신규 생성** — Tailwind v4는 CSS-first다. 이 파일이 추가되면 무조건 지적.
 3. **`package-lock.json` 삭제·재생성**, **TypeScript 버전 변경**(`~6.0.x` 고정, vue-tsc 호환 제약).
-4. **FE2 소유 영역 변경** — `features/live/` 내부 구현, `stores/live.ts`.
-   특히 `stores/live.ts`의 state 구조 변경은 FE1·FE2 합의 사항이므로, 합의 언급이 없으면 지적.
+4. **FE2 소유 영역 변경** — `features/live/media/`·`features/live/socket/`, `features/chat/`, `stores/live.ts`.
+   (`features/live/LiveView.vue`·`LiveLayout.vue`는 FE1 소유 프레임, `features/bid/`·`features/prediction/`은 FE1이므로 예외.)
+   특히 `stores/live.ts`의 state·action 시그니처 변경(`docs/03-역할-경계-합의.md` §3)은
+   FE1·FE2 합의 사항이므로, PR 본문에 합의 언급이 없으면 지적.
 5. **클라이언트 자체 타이머 계산** — `Date.now()` 단독으로 남은 시간을 계산하는 코드.
    반드시 `live` 스토어의 `endsAt` + `serverOffset`(BID-05 서버 권위) 기준이어야 한다.
 6. **비크리 비공개 원칙 위반** — 경매 진행 중 화면에 타인의 입찰 금액·순위·최고가를 노출하는 UI.
