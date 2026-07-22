@@ -32,6 +32,8 @@
 
 ## 컨벤션
 
+- **화면을 만들기 전에 `docs/02-협업-가이드.md`의 라우트 표와 와이어프레임(`비드라이브 인터랙티브.html`)을 대조한다.**
+  둘이 다르면 **와이어프레임이 기준이고 표가 틀린 것**이다 — 표를 먼저 고치고 나서 화면을 만든다.
 - 컴포넌트: PascalCase `.vue`, 라우트 화면은 `*View.vue`로 끝나며 `features/<도메인>/`에 둔다.
 - `<script setup lang="ts">` 사용. props/emits는 타입 기반 선언.
 - composable은 `use*` 접두사, 공용 유틸은 `shared/lib/`.
